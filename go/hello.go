@@ -7,6 +7,8 @@ import (
 	"rsc.io/quote/v4"
 )
 
+var bookTitleHTTPPath string = "/{title}"
+
 func renderHomePage(writer http.ResponseWriter, request *http.Request) {
 	// var test_int_for_debug_dlv int = 5
 	// test_debug := 4
@@ -34,5 +36,6 @@ func startServer() {
 }
 
 func main() {
-	startServer()
+	// startServer()
+	startServerWithRouter()
 }
