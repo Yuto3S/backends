@@ -37,5 +37,6 @@ func startServer() {
 
 func main() {
 	// startServer()
-	startServerWithRouter()
+	// startServerWithRouter()
+	initTables()
 }
