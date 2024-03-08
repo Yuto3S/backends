@@ -1,0 +1,19 @@
+<h1>{{.PageTitle}}</h1>
+Todo:
+<ul>
+    {{range .Todos}}
+        {{if not .Done}}
+            <li>{{.Title}}</li>
+        {{end}}
+    {{end}}
+</ul>
+Done:
+<ul>
+    {{range .Todos}}
+        {{if .Done}}
+            <li class="done">{{.Title}}</li>
+        {{end}}
+    {{end}}
+</ul>
+
+{{template "listOfTasks" .}}

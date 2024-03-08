@@ -1,0 +1,6 @@
+{{define "listOfTasks"}}
+    <h1>>All the tasks:</h1>
+    {{range .Todos}}
+        <a href="{{.Title}}">{{.Title}}</a>
+    {{end}}
+{{end}}

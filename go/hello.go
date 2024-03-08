@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
 
 	"rsc.io/quote/v4"
@@ -35,8 +36,17 @@ func startServer() {
 	http.ListenAndServe(":80", nil)
 }
 
+func startServerWithTemplate() {
+	tmpl := template.Must(template.ParseFiles("example_template.gohtml", "example_template_list_of_tasks.html"))
+	http.HandleFunc("/", func(writer http.ResponseWriter, r *http.Request) {
+		renderTemplate(writer, tmpl)
+	})
+	http.ListenAndServe(":80", nil)
+}
+
 func main() {
 	// startServer()
 	// startServerWithRouter()
-	initTables()
+	// initTables()
+	startServerWithTemplate()
 }
