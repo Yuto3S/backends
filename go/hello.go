@@ -44,9 +44,18 @@ func startServerWithTemplate() {
 	http.ListenAndServe(":80", nil)
 }
 
+func startServerWithForm() {
+	tmpl := template.Must(template.ParseFiles("form.html"))
+	http.HandleFunc("/", func(writer http.ResponseWriter, req *http.Request) {
+		handleSubmitDetails(writer, req, tmpl)
+	})
+	http.ListenAndServe(":80", nil)
+}
+
 func main() {
 	// startServer()
 	// startServerWithRouter()
 	// initTables()
-	startServerWithTemplate()
+	// startServerWithTemplate()
+	startServerWithForm()
 }
