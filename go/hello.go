@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 
 	"rsc.io/quote/v4"
@@ -30,7 +31,7 @@ func handleRenderStatic() {
 }
 
 func startServer() {
-	http.HandleFunc("/", renderHomePage)
+	http.HandleFunc("/", logging(renderHomePage))
 	handleRenderStatic()
 
 	http.ListenAndServe(":80", nil)
@@ -38,18 +39,25 @@ func startServer() {
 
 func startServerWithTemplate() {
 	tmpl := template.Must(template.ParseFiles("example_template.gohtml", "example_template_list_of_tasks.html"))
-	http.HandleFunc("/", func(writer http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/", logging(func(writer http.ResponseWriter, r *http.Request) {
 		renderTemplate(writer, tmpl)
-	})
+	}))
 	http.ListenAndServe(":80", nil)
 }
 
 func startServerWithForm() {
 	tmpl := template.Must(template.ParseFiles("form.html"))
-	http.HandleFunc("/", func(writer http.ResponseWriter, req *http.Request) {
+	http.HandleFunc("/", logging(func(writer http.ResponseWriter, req *http.Request) {
 		handleSubmitDetails(writer, req, tmpl)
-	})
+	}))
 	http.ListenAndServe(":80", nil)
+}
+
+func logging(f http.HandlerFunc) http.HandlerFunc {
+	return func(writer http.ResponseWriter, req *http.Request) {
+		log.Println(req.URL.Path)
+		f(writer, req)
+	}
 }
 
 func main() {
