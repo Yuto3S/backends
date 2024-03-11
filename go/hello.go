@@ -60,10 +60,16 @@ func logging(f http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
+func startServerWithMiddlewares() {
+	http.HandleFunc("/", Chain(HelloWorld, Method("GET"), Logging()))
+	http.ListenAndServe(":8080", nil)
+}
+
 func main() {
 	// startServer()
 	// startServerWithRouter()
 	// initTables()
 	// startServerWithTemplate()
-	startServerWithForm()
+	// startServerWithForm()
+	startServerWithMiddlewares()
 }
