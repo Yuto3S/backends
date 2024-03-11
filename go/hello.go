@@ -65,11 +65,20 @@ func startServerWithMiddlewares() {
 	http.ListenAndServe(":8080", nil)
 }
 
+func startServerWithSessions() {
+	http.HandleFunc("/secret", secret)
+	http.HandleFunc("/login", login)
+	http.HandleFunc("/logout", logout)
+
+	http.ListenAndServe(":8080", nil)
+}
+
 func main() {
 	// startServer()
 	// startServerWithRouter()
 	// initTables()
 	// startServerWithTemplate()
 	// startServerWithForm()
-	startServerWithMiddlewares()
+	// startServerWithMiddlewares()
+	startServerWithSessions()
 }
