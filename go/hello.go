@@ -73,6 +73,12 @@ func startServerWithSessions() {
 	http.ListenAndServe(":8080", nil)
 }
 
+func startServerHandlingJson() {
+	http.HandleFunc("/encode", encodeUser)
+	http.HandleFunc("/decode", decodeUserFromRequest)
+	http.ListenAndServe(":8080", nil)
+}
+
 func main() {
 	// startServer()
 	// startServerWithRouter()
@@ -80,5 +86,6 @@ func main() {
 	// startServerWithTemplate()
 	// startServerWithForm()
 	// startServerWithMiddlewares()
-	startServerWithSessions()
+	// startServerWithSessions()
+	startServerHandlingJson()
 }
