@@ -23,7 +23,7 @@ public class HelloControllerITTest {
 
     @Test
     public void testGetHello() throws Exception {
-        ResponseEntity<String> response = template.getForEntity("/", String.class);
+        ResponseEntity<String> response = template.getForEntity("/hello", String.class);
         assertThat(response.getBody()).isEqualTo("Hit on the Hello Page");
     }
 }
