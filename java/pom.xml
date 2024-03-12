@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.0</version>
+		<version>3.2.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>spring-boot-initial</artifactId>
+	<artifactId>spring-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-initial</name>
+	<name>spring-boot</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -27,7 +27,26 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+   <dependency>
+     <groupId>org.springframework</groupId>
+     <artifactId>spring-context</artifactId>
+     <version>5.1.9.RELEASE</version>
+   </dependency>
+ 
+   <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot</artifactId>
+     <version>2.1.7.RELEASE</version>
+   </dependency>
+
+   	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+ </dependencies>
 
 	<build>
 		<plugins>
