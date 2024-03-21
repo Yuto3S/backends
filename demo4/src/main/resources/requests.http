@@ -1,0 +1,14 @@
+### Post "Hello!"
+curl --header "Content-Type: application/json" --request POST --data '{"text": "Hello!"}' http://localhost:8080/messages
+
+### Post "Bonjour!"
+curl --header "Content-Type: application/json" --request POST --data '{"text": "Bonjour!"}' http://localhost:8080/messages
+
+### Post "Privet!"
+curl --header "Content-Type: application/json" --request POST --data '{"text": "Privet!"}' http://localhost:8080/messages
+
+### Get all the messages
+curl http://localhost:8080/
+
+### Get message by ID
+curl http://localhost:8080/messages/a98c7959-8aa9-46e8-bba1-04b962d26e90
