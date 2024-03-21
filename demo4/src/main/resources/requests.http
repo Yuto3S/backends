@@ -8,7 +8,10 @@ curl --header "Content-Type: application/json" --request POST --data '{"text": "
 curl --header "Content-Type: application/json" --request POST --data '{"text": "Privet!"}' http://localhost:8080/messages
 
 ### Get all the messages
-curl http://localhost:8080/
+curl http://localhost:8080/messages
 
 ### Get message by ID
+### DB1
 curl http://localhost:8080/messages/a98c7959-8aa9-46e8-bba1-04b962d26e90
+### DB2
+curl http://localhost:8080/messages/8ddd89df-967c-4ae2-833c-733f409f98b0
