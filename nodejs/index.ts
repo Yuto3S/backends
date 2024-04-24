@@ -1,13 +1,13 @@
-const express = require('express')
+import express, { Express, Request, Response } from "express";
 
-const app = express();
-const port = 4000;
+const app: Express = express();
+const port: string = process.env.PORT || "4000";
 
-app.get('/', function(req, res) {
+app.get('/', function(req: Request, res: Response) {
 	res.send('GET request to homepage')
 })
 
-app.get('/hello', function(req, res) {
+app.get('/hello', function(req: Request, res: Response) {
 	res.sendFile('index.html', {root: __dirname})
 })
 
