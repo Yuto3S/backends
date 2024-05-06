@@ -19,14 +19,16 @@ type User = {
     name: string;
     age: number;
   };
-  
-  function isAdult(user: User): boolean {
-    return user.age >= 18;
-  }
-  
-  const justine: User = {
-    name: 'Justine',
-    age: 20,
-  };
-  
-  const isJustineAnAdult: boolean = isAdult(justine);
+
+function isAdult(user: User): boolean {
+return user.age >= 18;
+}
+
+const justine: User = {
+name: 'Justine',
+age: 20,
+};
+
+const foo : number[] | string[] = ["&", "3"]
+
+const isJustineAnAdult = isAdult(justine);
